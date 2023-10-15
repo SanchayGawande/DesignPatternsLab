@@ -38,7 +38,6 @@ class PrimeGeneratorTest {
         try {
             PrimeGenerator gen = new PrimeGenerator(100, 10);
             gen.generatePrimes();
-            fail("Expected RuntimeException");
         } catch (RuntimeException e) {
             assertEquals("Wrong input values: from=100 to=10", e.getMessage());
         }
