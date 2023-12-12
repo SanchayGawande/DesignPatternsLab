@@ -92,5 +92,22 @@ class CarTest {
         Collections.sort(cars, Comparator.comparingInt(Car::getYear).reversed());
         assertTrue(cars.get(0).getYear() >= cars.get(1).getYear());
     }
-}
 
+    @Test
+    public void testParetoComparatorWithComparatorComparing() {
+        for (Car car : cars) {
+            car.setDominationCount(cars);
+        }
+        Collections.sort(cars, Comparator.comparingInt(Car::getDominationCount));
+        assertTrue(cars.get(0).getDominationCount() <= cars.get(1).getDominationCount());
+    }
+
+    @Test
+    public void testParetoComparatorWithComparatorComparingReversed() {
+        for (Car car : cars) {
+            car.setDominationCount(cars);
+        }
+        Collections.sort(cars, Comparator.comparingInt(Car::getDominationCount).reversed());
+        assertTrue(cars.get(0).getDominationCount() >= cars.get(1).getDominationCount());
+    }
+}
